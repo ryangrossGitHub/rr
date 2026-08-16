@@ -16,6 +16,11 @@ function update_rocks()
   -- Move rocks up the screen at the same speed as your terrain
   for r in all(rocks.list) do
     r.y -= speed
+
+    -- handle splashing
+    -- if rnd(1) < splash_prob then
+    --   make_splash(r.x + 4, r.y + 4) -- spawn a splash at the rock's center
+    -- end
     
     -- Remove the rock if it goes off the top of the screen
     if r.y < -8 then del(rocks.list, r) end
@@ -108,7 +113,7 @@ end
 
 function get_rand_between(padding)
     -- 128 screen width, 8 sprite width, padding on both sides
-    local max = 128 - padding - 8
-    local min = padding
+    local max = 128 - padding
+    local min = padding - 8
     return flr(rnd(max - min) + min)
 end

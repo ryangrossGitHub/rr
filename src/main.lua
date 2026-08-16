@@ -15,13 +15,14 @@ function _update60()
     update_land()
     update_rocks()
     update_player()
+    -- update_splashes()
 end
 
 function _draw()
     cls()
     map(0, 0)
     draw_land()
-    draw_slipstream()
     draw_rocks()
     spr(player.sprite, player.x, player.y)
+    -- draw_splashes()
 end
